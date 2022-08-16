@@ -1,0 +1,40 @@
+{
+  "name": "real-estate",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "David Rodriguez <drodriguezf93@gmail.com>",
+  "homepage": "https://github.com/nexxtmission/rainbow-industries#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nexxtmission/rainbow-industries.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/real-estate.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/nexxtmission/rainbow-industries/issues"
+  },
+  "dependencies": {
+    "@googlemaps/react-wrapper": "^1.1.35",
+    "@googlemaps/region-lookup": "^0.0.0",
+    "@types/google.maps": "^3.49.2",
+    "axios": "^0.27.2",
+    "react-rainbow-components": "^1.31.0",
+    "styled-components": ">=4.3.2 <6"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "react-rainbow-components": ">=1.18.1",
+    "styled-components": ">=4.3.2 <6"
+  }
+}
