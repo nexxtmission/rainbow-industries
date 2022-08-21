@@ -1,0 +1,57 @@
+version: 2.1
+
+defaults: &defaults
+    working_directory: ~/repo
+    docker:
+        - image: cimg/node:16.17.0-browsers
+
+restore_cache_dependencies: &restore_cache_dependencies
+    restore_cache:
+        keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+
+jobs:
+    build_and_test:
+        <<: *defaults
+
+        steps:
+            - checkout
+            - *restore_cache_dependencies
+            - run: yarn install
+            - save_cache:
+                  paths:
+                      - node_modules
+                  key: v1-dependencies-{{ checksum "yarn.lock" }}
+
+            - run: yarn lint:js
+            - run:
+                  name: run test
+                  command: yarn test --runInBand --ci --coverage
+
+    deploy_firebase:
+        <<: *defaults
+
+        steps:
+            - checkout
+            - *restore_cache_dependencies
+            - run: yarn install
+            - run:
+                  name: Create .env file
+                  command: |
+                      touch .env;
+                      echo STORYBOOK_GOOGLE_MAPS_API_KEY=$STORYBOOK_GOOGLE_MAPS_API_KEY >> .env;
+
+            - run: yarn deploy --token=$FIREBASE_TOKEN
+
+workflows:
+    version: 2
+    build_and_test:
+        jobs:
+            - build_and_test
+            - deploy_firebase:
+                  requires:
+                      - build_and_test
+                  filters:
+                      branches:
+                          only: master
