@@ -3,3 +3,8 @@ lerna-debug.log
 npm-debug.log
 packages/*/lib
 .vscode
+storybook-static
+
+# jest
+.jest-cache
+.jest-coverage

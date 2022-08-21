@@ -1,17 +1,16 @@
 {
     "compilerOptions": {
-        "module": "ES6",
         "target": "es5",
         "declaration": true,
         "sourceMap": true,
-        "allowJs": true,
+        "allowJs": false,
         "esModuleInterop": true,
         "strict": true,
         "forceConsistentCasingInFileNames": true,
         "moduleResolution": "node",
         "isolatedModules": true,
         "jsx": "react",
-        "skipLibCheck": true
+        "skipLibCheck": true,
     },
     "exclude": [
         "node_modules",
