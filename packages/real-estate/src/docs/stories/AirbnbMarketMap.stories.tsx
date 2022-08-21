@@ -42,13 +42,15 @@ const properties: Property[] = [
     },
 ];
 
+const STORYBOOK_GOOGLE_MAPS_API_KEY = process.env.STORYBOOK_GOOGLE_MAPS_API_KEY || '';
+
 export const Basic = () => (
     <Container>
         <AirbnbMarketMap
             city="Nueva York"
             properties={properties}
             mapId="2c7d9c6b230ec720"
-            googleApiKey="AIzaSyCjq-D_xrVG8o_lHrx4F1jmZ7G2Sqbyj24"
+            googleApiKey={STORYBOOK_GOOGLE_MAPS_API_KEY}
         />
     </Container>
 );

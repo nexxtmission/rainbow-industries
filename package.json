@@ -8,7 +8,7 @@
     "bootstrap": "npx lerna bootstrap --use-workspaces",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "lint:js": "eslint packages/**/*.{js,jsx,ts,tsx,json}",
+    "lint:js": "eslint packages/**/*.{ts,tsx}",
     "test": "jest ./packages --verbose",
     "deploy": "yarn build-storybook && firebase deploy --only hosting"
   },

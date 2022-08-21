@@ -10,13 +10,6 @@ export const MapContainer = styled.div`
     height: 100%;
 `;
 
-export const StyledMapOverlay = styled.div`
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    border-radius: 8px;
-`;
-
 export const PropertyInfoMouseArea = styled.div`
     padding: 4px;
     margin: -4px;

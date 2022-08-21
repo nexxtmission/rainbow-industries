@@ -69,7 +69,6 @@ const Map = ({ mapId, placeId: placeIdInProps, properties }: MapProps) => {
     }, [properties, map]);
 
     const handleMouseLeave = useCallback(() => {
-        console.log('mouse leave');
         setOpenProperty(null);
     }, []);
 
