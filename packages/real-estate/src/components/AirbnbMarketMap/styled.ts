@@ -88,7 +88,7 @@ export const PropertyExtraItems = styled.div`
 export const PropertyExtraItem = styled.div`
     display: flex;
     flex-direction: column;
-    flex: 1 1 0px;
+    flex: 1 1 0;
     align-items: center;
     min-width: 0;
     overflow: hidden;
