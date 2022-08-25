@@ -55,11 +55,6 @@ export interface OverlayViewProps {
     children?: React.ReactNode;
 }
 
-export interface MapOverlayProps {
-    onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
-    children?: React.ReactNode;
-}
-
 export interface InfoWindowProps {
     isOpen?: boolean;
     map?: google.maps.Map | null;

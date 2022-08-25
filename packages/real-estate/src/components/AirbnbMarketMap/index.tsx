@@ -29,7 +29,7 @@ const AirbnbMarketMap = ({ city, properties, googleApiKey, mapId }: AirbnbMarket
                     setPlaceId(response.data.matches[0].matchedPlaceId);
                 }
             } catch (error) {
-                console.log(error);
+                console.error(error);
             }
         };
 

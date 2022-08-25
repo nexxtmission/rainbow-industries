@@ -8,7 +8,9 @@
     "bootstrap": "npx lerna bootstrap --use-workspaces",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "lint:js": "eslint packages/**/*.{js,jsx,ts,tsx,json}",
+    "lint": "yarn lint:js && yarn lint:styles",
+    "lint:js": "eslint packages/**/*.{ts,tsx}",
+    "lint:styles": "stylelint './packages/**/*.ts'",
     "test": "jest ./packages --verbose",
     "deploy": "yarn build-storybook && firebase deploy --only hosting"
   },
@@ -45,6 +47,10 @@
     "jest": "^28.1.3",
     "lerna": "^5.4.0",
     "prettier": "^2.7.1",
+    "stylelint": "^13.3.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-processor-styled-components": "^1.10.0",
     "ts-jest": "^28.0.8",
     "typescript": "^4.7.4"
   },

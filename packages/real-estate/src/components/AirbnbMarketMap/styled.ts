@@ -10,13 +10,6 @@ export const MapContainer = styled.div`
     height: 100%;
 `;
 
-export const StyledMapOverlay = styled.div`
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    border-radius: 8px;
-`;
-
 export const PropertyInfoMouseArea = styled.div`
     padding: 4px;
     margin: -4px;
@@ -95,7 +88,7 @@ export const PropertyExtraItems = styled.div`
 export const PropertyExtraItem = styled.div`
     display: flex;
     flex-direction: column;
-    flex: 1 1 0px;
+    flex: 1 1 0;
     align-items: center;
     min-width: 0;
     overflow: hidden;

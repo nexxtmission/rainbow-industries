@@ -10,7 +10,7 @@ const InfoWindow = ({ isOpen, map, property, children }: InfoWindowProps) => {
         if (isOpen && property) {
             const element = document.createElement('div');
             infoWindow.current.setContent(element);
-            infoWindow.current.setPosition(property.coordinates);
+            infoWindow.current.setPosition(property.latLng);
             infoWindow.current.open({
                 anchor: null,
                 map,
@@ -23,7 +23,6 @@ const InfoWindow = ({ isOpen, map, property, children }: InfoWindowProps) => {
     }, [isOpen, property, map]);
 
     if (isOpen && containerElement) {
-        console.log(containerElement);
         return ReactDOM.createPortal(children, containerElement);
     }
     return null;
