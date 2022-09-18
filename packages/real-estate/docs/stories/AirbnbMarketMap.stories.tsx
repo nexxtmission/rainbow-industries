@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import AirbnbMarketMap from '../../components/AirbnbMarketMap';
-import { Property } from '../../components/AirbnbMarketMap/types';
+import AirbnbMarketMap from '../../src/components/AirbnbMarketMap';
+import { Property } from '../../src/components/AirbnbMarketMap/types';
 
 export default {
     title: 'AirbnbMarketMap',
