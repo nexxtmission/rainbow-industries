@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "author": "Nexxtway Team",
   "homepage": "https://github.com/nexxtmission/rainbow-industries#readme",
-  "license": "ISC",
+  "license": "MIT",
   "main": "lib/index.js",
   "directories": {
     "lib": "lib",
