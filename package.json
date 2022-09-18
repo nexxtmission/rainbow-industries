@@ -12,7 +12,10 @@
     "lint:js": "eslint packages/**/*.{ts,tsx}",
     "lint:styles": "stylelint './packages/**/*.ts'",
     "test": "jest ./packages --verbose",
-    "deploy": "yarn build-storybook && firebase deploy --only hosting"
+    "deploy": "yarn build-storybook && firebase deploy --only hosting",
+    "clean": "lerna exec -- rm -rf ./lib && lerna run clean",
+    "build": "lerna run --parallel build",
+    "publish-packages": "yarn clean && yarn build && npx lerna publish"
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",

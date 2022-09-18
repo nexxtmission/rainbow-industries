@@ -10,7 +10,7 @@
         "moduleResolution": "node",
         "isolatedModules": true,
         "jsx": "react",
-        "skipLibCheck": true,
+        "skipLibCheck": true
     },
     "exclude": [
         "node_modules",

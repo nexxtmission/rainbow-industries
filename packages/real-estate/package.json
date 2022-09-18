@@ -1,8 +1,7 @@
 {
-  "name": "real-estate",
-  "version": "0.0.0",
-  "description": "> TODO: description",
-  "author": "David Rodriguez <drodriguezf93@gmail.com>",
+  "name": "@rainbow-industries/real-estate",
+  "version": "0.0.1",
+  "author": "Nexxtway Team",
   "homepage": "https://github.com/nexxtmission/rainbow-industries#readme",
   "license": "ISC",
   "main": "lib/index.js",
@@ -18,10 +17,15 @@
     "url": "git+https://github.com/nexxtmission/rainbow-industries.git"
   },
   "scripts": {
+    "clean": "rm -rf ./lib",
+    "build": "tsc -p tsconfig.json",
     "test": "node ./__tests__/real-estate.test.js"
   },
   "bugs": {
     "url": "https://github.com/nexxtmission/rainbow-industries/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "dependencies": {
     "@googlemaps/react-wrapper": "^1.1.35",
