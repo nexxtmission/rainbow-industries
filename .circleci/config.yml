@@ -19,6 +19,7 @@ jobs:
             - checkout
             - *restore_cache_dependencies
             - run: yarn install
+            - run: yarn bootstrap
             - save_cache:
                   paths:
                       - node_modules
@@ -43,6 +44,19 @@ jobs:
                       echo STORYBOOK_GOOGLE_MAPS_API_KEY=$STORYBOOK_GOOGLE_MAPS_API_KEY >> .env;
 
             - run: yarn deploy --token=$FIREBASE_TOKEN
+
+    publish_canary:
+        <<: *defaults
+
+        steps:
+            - checkout
+            - *restore_cache_dependencies
+            - run: yarn install
+            - run: yarn bootstrap
+            - run:
+                  name: Auth with registry
+                  command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+            - run: yarn publish-packages --canary --preid canary --yes
 
 workflows:
     version: 2
