@@ -69,3 +69,9 @@ workflows:
                   filters:
                       branches:
                           only: master
+            - publish_canary:
+                  requires:
+                      - build_and_test
+                  filters:
+                      branches:
+                          only: master
