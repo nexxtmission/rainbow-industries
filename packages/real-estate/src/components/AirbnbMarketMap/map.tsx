@@ -27,6 +27,11 @@ const Map = ({ mapId, placeId: placeIdInProps, properties }: MapProps) => {
                 mapId,
                 center: { lat: 0, lng: 0 },
                 zoom: 8,
+                mapTypeControl: false,
+                streetViewControl: false,
+                rotateControl: false,
+                scaleControl: false,
+                fullscreenControl: false,
             });
             // @ts-ignore
             localityLayer.current = newMap.getFeatureLayer('LOCALITY');
