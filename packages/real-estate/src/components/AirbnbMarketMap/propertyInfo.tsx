@@ -34,7 +34,9 @@ const PropertyInfo = ({ property, onRequestClose }: PropertyInfoProps) => {
                 <PropertyImageContainer>
                     <img src={imageUrl} alt="placeholder" />
                 </PropertyImageContainer>
-                <PropertyNameLink href={property?.airbnbUrl}>{property?.name}</PropertyNameLink>
+                <PropertyNameLink href={property?.airbnbUrl} target="_blank">
+                    {property?.name}
+                </PropertyNameLink>
                 <PropertyDetails>
                     <PropertyDetailsItems>
                         <RenderIf isTrue={property?.beds}>

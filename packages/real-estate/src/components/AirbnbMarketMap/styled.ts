@@ -18,7 +18,7 @@ export const PropertyInfoMouseArea = styled.div`
 
 export const PropertyInfoContainer = styled.div`
     position: relative;
-    width: 250px;
+    width: 350px;
     padding: 4px;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@ export const PropertyInfoContainer = styled.div`
 
 export const PropertyImageContainer = styled.div`
     width: 100%;
-    height: 100px;
+    height: 150px;
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 8px;
