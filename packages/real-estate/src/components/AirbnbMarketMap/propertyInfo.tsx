@@ -1,5 +1,8 @@
 import React from 'react';
+import { RenderIf } from 'react-rainbow-components';
+import { Close } from '@rainbow-modules/icons';
 import {
+    CloseButtonIcon,
     DividerText,
     ItemDescription,
     ItemTitle,
@@ -15,41 +18,45 @@ import {
 } from './styled';
 import { PropertyInfoProps } from './types';
 
-const PropertyInfo = ({ property, onMouseLeave }: PropertyInfoProps) => {
+const PropertyInfo = ({ property, onRequestClose }: PropertyInfoProps) => {
     const stopPropagation = (e: React.MouseEvent | React.DragEvent) => e.stopPropagation();
-    const imageUrl = property?.imageUrl || 'https://placehold.jp/300x150.png';
+    const imageUrl = property?.photoUrl || 'https://placehold.jp/300x150.png';
+
     return (
-        <PropertyInfoMouseArea onMouseLeave={onMouseLeave}>
+        <PropertyInfoMouseArea>
             <PropertyInfoContainer onMouseDown={stopPropagation} onDoubleClick={stopPropagation}>
+                <CloseButtonIcon
+                    icon={<Close />}
+                    variant="neutral"
+                    size="small"
+                    onClick={onRequestClose}
+                />
                 <PropertyImageContainer>
                     <img src={imageUrl} alt="placeholder" />
                 </PropertyImageContainer>
-                <PropertyNameLink href="#">{property?.name}</PropertyNameLink>
+                <PropertyNameLink href={property?.airbnbUrl}>{property?.name}</PropertyNameLink>
                 <PropertyDetails>
                     <PropertyDetailsItems>
-                        <span>1 bedrooms</span>
+                        <RenderIf isTrue={property?.beds}>
+                            <span>{property?.beds} beds&nbsp;&nbsp;</span>
+                        </RenderIf>
+                        <RenderIf isTrue={property?.beds}>
+                            <span>{property?.bathrooms} bathrooms</span>
+                        </RenderIf>
                     </PropertyDetailsItems>
                     <PropertyDetailsZipCode>Zipcode: {property?.zipCode}</PropertyDetailsZipCode>
                 </PropertyDetails>
-                <DividerText>Last 12 months</DividerText>
-                <PropertyExtraItems>
-                    <PropertyExtraItem>
-                        <ItemTitle>23</ItemTitle>
-                        <ItemDescription>Days Available</ItemDescription>
-                    </PropertyExtraItem>
-                    <PropertyExtraItem>
-                        <ItemTitle>$163</ItemTitle>
-                        <ItemDescription>Avg. Daily Rate</ItemDescription>
-                    </PropertyExtraItem>
-                    <PropertyExtraItem>
-                        <ItemTitle>8%</ItemTitle>
-                        <ItemDescription>Occupancy</ItemDescription>
-                    </PropertyExtraItem>
-                    <PropertyExtraItem>
-                        <ItemTitle>$324</ItemTitle>
-                        <ItemDescription>Revenue</ItemDescription>
-                    </PropertyExtraItem>
-                </PropertyExtraItems>
+                <RenderIf isTrue={property?.extraDetails?.items?.length}>
+                    <DividerText>{property?.extraDetails?.label}</DividerText>
+                    <PropertyExtraItems>
+                        {property?.extraDetails?.items?.map((item) => (
+                            <PropertyExtraItem>
+                                <ItemTitle>{item.value}</ItemTitle>
+                                <ItemDescription>{item.label}</ItemDescription>
+                            </PropertyExtraItem>
+                        ))}
+                    </PropertyExtraItems>
+                </RenderIf>
             </PropertyInfoContainer>
         </PropertyInfoMouseArea>
     );

@@ -67,13 +67,13 @@ const Map = ({ mapId, placeId: placeIdInProps, properties }: MapProps) => {
                     scale: 1,
                 },
             });
-            marker.addListener('mouseover', () => {
+            marker.addListener('click', () => {
                 setOpenProperty(p);
             });
         });
     }, [properties, map]);
 
-    const handleMouseLeave = useCallback(() => {
+    const handleClose = useCallback(() => {
         setOpenProperty(null);
     }, []);
 
@@ -93,7 +93,7 @@ const Map = ({ mapId, placeId: placeIdInProps, properties }: MapProps) => {
     return (
         <MapContainer ref={ref}>
             <OverlayView map={map} property={openProperty} isVisible={!!openProperty}>
-                <PropertyInfo property={openProperty} onMouseLeave={handleMouseLeave} />
+                <PropertyInfo property={openProperty} onRequestClose={handleClose} />
             </OverlayView>
         </MapContainer>
     );

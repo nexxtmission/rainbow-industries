@@ -2920,6 +2920,11 @@
   resolved "https://registry.yarnpkg.com/@rainbow-modules/hooks/-/hooks-0.12.0.tgz#d1293691aff4d94202b694d5004254fb25900824"
   integrity sha512-ndpr7Hazm+np5wYwPPGKsxFMKwFyfxiYQTy/cMo/nQyi7orcYR8myU2/qsHcNJXLPA4UQl6s1la3rQnVIQ4NFA==
 
+"@rainbow-modules/icons@^0.53.0":
+  version "0.53.0"
+  resolved "https://registry.yarnpkg.com/@rainbow-modules/icons/-/icons-0.53.0.tgz#38db7852f98e9fb9ded89444ec4116405115e593"
+  integrity sha512-82uAzE9HmHEnfU2l/01z3dCU4xKvwsHxd4ooAss/xFuUzFIRG6EACdAdE8khsgGX1v2+JiUu7slp9poQjpkq/Q==
+
 "@sinclair/typebox@^0.24.1":
   version "0.24.28"
   resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.24.28.tgz#15aa0b416f82c268b1573ab653e4413c965fe794"

@@ -16,16 +16,20 @@ const Container = styled.div`
 const properties: Property[] = [
     {
         name: 'Hana, HI',
-        zipCode: '96765',
+        zipCode: 96765,
         latLng: {
             lat: 40.67393736678081,
             lng: -73.950401391652,
         },
+        beds: 1,
+        bathrooms: 1,
         color: 'red',
     },
     {
         name: 'Super Power',
-        zipCode: '96765',
+        zipCode: 96765,
+        beds: 1,
+        bathrooms: 2,
         latLng: {
             lat: 40.673983106286876,
             lng: -73.95025884526443,
@@ -33,7 +37,9 @@ const properties: Property[] = [
     },
     {
         name: 'Flatiron Building',
-        zipCode: '96765',
+        zipCode: 96765,
+        beds: 3,
+        bathrooms: 2,
         latLng: {
             lat: 40.74119487759351,
             lng: -73.98873812452175,
