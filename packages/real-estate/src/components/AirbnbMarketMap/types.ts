@@ -2,14 +2,13 @@ import React from 'react';
 
 export interface Property {
     name: string;
-    imageUrl?: string;
-    zipCode?: string;
-    details?: {
-        bedrooms: number;
-        bathrooms: number;
-    };
-    extraDetails?: PropertyExtraDetails;
+    photoUrl?: string;
+    airbnbUrl?: string;
+    beds?: number;
+    bathrooms?: number;
+    zipCode?: number;
     latLng: google.maps.LatLngLiteral;
+    extraDetails?: PropertyExtraDetails;
     color?: string;
 }
 
@@ -20,7 +19,7 @@ export interface PropertyExtraDetails {
 
 export interface PropertyExtraDetailsItem {
     label: string;
-    value: unknown;
+    value: React.ReactNode;
 }
 
 export interface AirbnbMarketMapProps {
@@ -65,5 +64,5 @@ export interface InfoWindowProps {
 
 export interface PropertyInfoProps {
     property?: Property | null;
-    onMouseLeave?: React.MouseEventHandler<HTMLDivElement>;
+    onRequestClose?: () => void;
 }

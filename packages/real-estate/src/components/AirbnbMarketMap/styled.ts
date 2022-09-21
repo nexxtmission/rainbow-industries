@@ -1,3 +1,4 @@
+import { ButtonIcon } from 'react-rainbow-components';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -111,4 +112,11 @@ export const ItemDescription = styled.span`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+`;
+
+export const CloseButtonIcon = styled(ButtonIcon)`
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    opacity: 0.6;
 `;
