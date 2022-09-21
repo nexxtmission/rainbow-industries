@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
+import { addMarker, removeAllMarkers } from './helpers/markers';
 import OverlayView from './overlayView';
 import PropertyInfo from './propertyInfo';
 import { MapContainer } from './styled';
@@ -54,7 +55,7 @@ const Map = ({ mapId, placeId: placeIdInProps, properties }: MapProps) => {
     }, [placeIdInProps]);
 
     useEffect(() => {
-        if (!properties) return;
+        if (!properties) return () => {};
         properties.forEach((p) => {
             const marker = new window.google.maps.Marker({
                 position: p.latLng,
@@ -67,10 +68,14 @@ const Map = ({ mapId, placeId: placeIdInProps, properties }: MapProps) => {
                     scale: 1,
                 },
             });
+            addMarker(marker);
             marker.addListener('click', () => {
                 setOpenProperty(p);
             });
         });
+        return () => {
+            removeAllMarkers();
+        };
     }, [properties, map]);
 
     const handleClose = useCallback(() => {
