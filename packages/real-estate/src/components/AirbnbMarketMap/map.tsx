@@ -15,11 +15,11 @@ const Map = ({ mapId, placeId: placeIdInProps, properties }: MapProps) => {
     // Define a style with purple fill and border.
     // @ts-ignore
     const featureStyleOptions: google.maps.FeatureStyleOptions = {
-        strokeColor: '#1894AB',
+        strokeColor: '#4F5657',
         strokeOpacity: 1.0,
-        strokeWeight: 1.0,
-        fillColor: '#DBF2F6',
-        fillOpacity: 0.6,
+        strokeWeight: 1.5,
+        fillColor: '#FFFFFF',
+        fillOpacity: 0.4,
     };
 
     useEffect(() => {
@@ -65,7 +65,7 @@ const Map = ({ mapId, placeId: placeIdInProps, properties }: MapProps) => {
                     fillColor: p.color ?? '#1894AB',
                     fillOpacity: 0.8,
                     strokeColor: '#FFFFFF',
-                    scale: 1,
+                    scale: 1.3,
                 },
             });
             addMarker(marker);
