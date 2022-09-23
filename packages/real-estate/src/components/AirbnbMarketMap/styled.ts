@@ -1,5 +1,6 @@
 import { ButtonIcon } from 'react-rainbow-components';
 import styled from 'styled-components';
+import { Bathroom, Bed } from './icons';
 
 export const Container = styled.div`
     width: 100%;
@@ -119,4 +120,24 @@ export const CloseButtonIcon = styled(ButtonIcon)`
     top: 4px;
     right: 4px;
     opacity: 0.6;
+`;
+
+export const IconContainer = styled.div`
+    display: inline-flex;
+    align-items: center;
+    margin-right: 16px;
+`;
+
+export const StyledBed = styled(Bed)`
+    width: 14px;
+    height: 14px;
+`;
+
+export const StyledBathroom = styled(Bathroom)`
+    width: 14px;
+    height: 14px;
+`;
+
+export const IconDescription = styled.span`
+    margin-left: 3px;
 `;

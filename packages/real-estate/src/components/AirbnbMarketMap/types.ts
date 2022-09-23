@@ -66,3 +66,9 @@ export interface PropertyInfoProps {
     property?: Property | null;
     onRequestClose?: () => void;
 }
+
+export interface IconProps {
+    title?: string;
+    style?: React.CSSProperties;
+    className?: string;
+}
