@@ -4,6 +4,8 @@ import { Close } from '@rainbow-modules/icons';
 import {
     CloseButtonIcon,
     DividerText,
+    IconContainer,
+    IconDescription,
     ItemDescription,
     ItemTitle,
     PropertyDetails,
@@ -15,6 +17,8 @@ import {
     PropertyInfoContainer,
     PropertyInfoMouseArea,
     PropertyNameLink,
+    StyledBathroom,
+    StyledBed,
 } from './styled';
 import { PropertyInfoProps } from './types';
 
@@ -40,10 +44,16 @@ const PropertyInfo = ({ property, onRequestClose }: PropertyInfoProps) => {
                 <PropertyDetails>
                     <PropertyDetailsItems>
                         <RenderIf isTrue={property?.beds}>
-                            <span>{property?.beds} beds&nbsp;&nbsp;</span>
+                            <IconContainer>
+                                <StyledBed />
+                                <IconDescription>{property?.beds}</IconDescription>
+                            </IconContainer>
                         </RenderIf>
-                        <RenderIf isTrue={property?.beds}>
-                            <span>{property?.bathrooms} bathrooms</span>
+                        <RenderIf isTrue={property?.bathrooms}>
+                            <IconContainer>
+                                <StyledBathroom />
+                                <IconDescription>{property?.bathrooms}</IconDescription>
+                            </IconContainer>
                         </RenderIf>
                     </PropertyDetailsItems>
                     <PropertyDetailsZipCode>Zipcode: {property?.zipCode}</PropertyDetailsZipCode>
