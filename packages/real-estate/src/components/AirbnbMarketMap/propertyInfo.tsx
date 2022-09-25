@@ -21,10 +21,11 @@ import {
     StyledBed,
 } from './styled';
 import { PropertyInfoProps } from './types';
+import Placeholder from './placeholder';
 
 const PropertyInfo = ({ property, onRequestClose }: PropertyInfoProps) => {
     const stopPropagation = (e: React.MouseEvent | React.DragEvent) => e.stopPropagation();
-    const imageUrl = property?.photoUrl || 'https://placehold.jp/300x150.png';
+    const imageUrl = property?.photoUrl;
 
     return (
         <PropertyInfoMouseArea>
@@ -36,7 +37,12 @@ const PropertyInfo = ({ property, onRequestClose }: PropertyInfoProps) => {
                     onClick={onRequestClose}
                 />
                 <PropertyImageContainer>
-                    <img src={imageUrl} alt="placeholder" />
+                    <RenderIf isTrue={imageUrl}>
+                        <img src={imageUrl} alt={property?.name} />
+                    </RenderIf>
+                    <RenderIf isTrue={!imageUrl}>
+                        <Placeholder />
+                    </RenderIf>
                 </PropertyImageContainer>
                 <PropertyNameLink href={property?.airbnbUrl} target="_blank">
                     {property?.name}
