@@ -67,12 +67,15 @@ const PropertyInfo = ({ property, onRequestClose }: PropertyInfoProps) => {
                 <RenderIf isTrue={property?.extraDetails?.items?.length}>
                     <DividerText>{property?.extraDetails?.label}</DividerText>
                     <PropertyExtraItems>
-                        {property?.extraDetails?.items?.map((item) => (
-                            <PropertyExtraItem>
-                                <ItemTitle>{item.value}</ItemTitle>
-                                <ItemDescription>{item.label}</ItemDescription>
-                            </PropertyExtraItem>
-                        ))}
+                        {property?.extraDetails?.items?.map((item, index) => {
+                            const key = `${item.label}-${index}`;
+                            return (
+                                <PropertyExtraItem key={key}>
+                                    <ItemTitle>{item.value}</ItemTitle>
+                                    <ItemDescription>{item.label}</ItemDescription>
+                                </PropertyExtraItem>
+                            );
+                        })}
                     </PropertyExtraItems>
                 </RenderIf>
             </PropertyInfoContainer>
