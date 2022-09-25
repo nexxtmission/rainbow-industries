@@ -44,6 +44,9 @@ export const PropertyImageContainer = styled.div`
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
         width: 100%;
