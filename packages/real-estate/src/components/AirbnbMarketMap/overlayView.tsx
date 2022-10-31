@@ -28,6 +28,7 @@ const OverlayView = ({ isVisible, map, property, children }: OverlayViewProps) =
     const onAdd = useCallback(() => {
         containerElement.current = document.createElement('div');
         containerElement.current.style.position = 'absolute';
+        containerElement.current.style.maxWidth = '100%';
 
         const panes = overlayView.current?.getPanes();
         if (panes && containerElement.current) {

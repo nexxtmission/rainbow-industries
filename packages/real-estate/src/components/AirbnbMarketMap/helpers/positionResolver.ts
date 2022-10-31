@@ -28,6 +28,8 @@ const resolvers: Array<(opts: MapPositionResolverOpts) => Position | boolean> = 
     resolverCenter,
 ];
 
+const TOP_PADDING = 54;
+
 export default function positionResolver(opts: MapPositionResolverOpts): Position {
     let pos;
     resolvers.some((resolver) => {
@@ -42,7 +44,7 @@ export default function positionResolver(opts: MapPositionResolverOpts): Positio
         return pos;
     }
     return {
-        left: 0,
-        top: 0,
+        left: opts.bounds.topLeft.x,
+        top: opts.bounds.topLeft.y + TOP_PADDING,
     };
 }
