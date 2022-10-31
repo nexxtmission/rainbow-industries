@@ -1,7 +1,7 @@
 import positionResolver, { MapPositionResolverOpts } from '../positionResolver';
 
 describe('positionResolver', () => {
-    it('should return position at 0:0 when the bounds are smaller than content', () => {
+    it('should return the correct position when the bounds are smaller than content', () => {
         const opts: MapPositionResolverOpts = {
             content: {
                 width: 100,
@@ -22,6 +22,6 @@ describe('positionResolver', () => {
                 y: 0,
             },
         };
-        expect(positionResolver(opts)).toEqual({ top: 0, left: 0 });
+        expect(positionResolver(opts)).toEqual({ top: -25 + 54, left: -25 });
     });
 });
