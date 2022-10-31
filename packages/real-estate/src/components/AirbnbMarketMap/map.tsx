@@ -51,8 +51,22 @@ const Map = ({ mapId, placeId: placeIdInProps, properties }: MapProps) => {
             }
             return undefined;
         };
-        zoomToPolygon();
     }, [placeIdInProps]);
+
+    useEffect(() => {
+        if (!placeIdInProps || !map) return;
+        const geocoder = new window.google.maps.Geocoder();
+        geocoder
+            .geocode({ placeId: placeIdInProps })
+            .then(({ results }) => {
+                if (results.length > 0) {
+                    map?.fitBounds(results[0].geometry.viewport, 50);
+                }
+            })
+            .catch((e) => {
+                console.error(`Geocoder failed due to: ${e}`);
+            });
+    }, [map, placeIdInProps]);
 
     useEffect(() => {
         if (!properties) return () => {};
@@ -81,19 +95,6 @@ const Map = ({ mapId, placeId: placeIdInProps, properties }: MapProps) => {
     const handleClose = useCallback(() => {
         setOpenProperty(null);
     }, []);
-
-    // Call Geocoding API and zoom to the resulting bounds.
-    function zoomToPolygon() {
-        const geocoder = new window.google.maps.Geocoder();
-        geocoder
-            .geocode({ placeId: placeIdInProps })
-            .then(({ results }) => {
-                map?.fitBounds(results[0].geometry.viewport, 50);
-            })
-            .catch((e) => {
-                console.error(`Geocoder failed due to: ${e}`);
-            });
-    }
 
     return (
         <MapContainer ref={ref}>

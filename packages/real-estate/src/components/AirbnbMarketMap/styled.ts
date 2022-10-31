@@ -14,18 +14,19 @@ export const MapContainer = styled.div`
 
 export const PropertyInfoMouseArea = styled.div`
     padding: 4px;
-    margin: -4px;
 `;
 
 export const PropertyInfoContainer = styled.div`
     position: relative;
     width: 350px;
+    max-width: 100%;
     padding: 4px;
     display: flex;
     flex-direction: column;
     background-color: #fff;
     border-radius: 8px;
     cursor: auto;
+    box-sizing: border-box;
 
     ::before {
         content: '';
